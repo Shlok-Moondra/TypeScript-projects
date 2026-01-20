@@ -31,3 +31,59 @@ interface discountCal{
 
 const apply50 : discountCal = (p) => p*0.5
 
+interface TeaMachine{
+    start():void;
+    stop():void
+}
+
+const machine:TeaMachine = {
+   start() {
+       console.log("start");
+   },
+   stop() {
+       console.log("stop");
+   },
+}
+console.log(machine);
+
+console.log(machine.start())
+console.log(machine.stop())
+
+
+//index signature
+
+interface chaiRating{
+    [flavor:string]:number
+}
+
+const r : chaiRating = {
+    "Masala":4.5,
+    "Ginger":5.0
+}
+console.log(r)
+
+//unsing interfaces with libraries or with team where multiple interfaces are defined
+
+//library user
+interface user{
+    name:string
+}
+
+//user defined user
+interface user{
+    age:number
+}
+
+const u:user = {
+    name:"shlok",
+    age:24
+}
+
+console.log(u);
+
+
+interface A {a:string}
+interface B {b:string}
+
+interface C extends A,B {}
+
