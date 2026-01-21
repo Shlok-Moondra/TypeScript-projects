@@ -14,7 +14,7 @@ let numList = ["10","20","28","30"]
 
 
 //let currFolder = in this it is showing ANY means any value could come
-let currFolder: string | undefined;// this shows only few valuescan come 
+let currFolder: string | undefined;// this shows only few values can come 
 
 for(let order of numList){
     if(order == "30"){
