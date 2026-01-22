@@ -77,11 +77,52 @@ let x4 =100;
 add();
 
 
+//Async and await functions
+setTimeout(()=>{
+    console.log("hello");
+},4000);
+
+// by default JS is Asynchronous programming
 
 
+//CallBack Hell
+function getData(dataId,nextData){
+    // setTimeout(()=>{
+    //     console.log("data",dataId)
+    //     if(nextData){
+    //         nextData();
+    //     }
+    // },2000)
+    return new Promise((resolve,reject)=>{
+        console.log("data",dataId)
+        if(nextData){
+            nextData();
+        }
+        reject("network error")
+        
+    })
+}
 
+// getData(1,()=>{
+//     getData(2,()=>{
+//         getData(3,()=>{
+//             getData(4)
+//         })
+//     })
+// })
 
+let promise = getData(12);
+promise.then((response)=>{
+    console.log("success",response);
+});
 
+promise.catch((err)=>{
+    console.log("reject",err);
+});
 
+// let x3 = new Promise((resolve,reject)=>{
+//     console.log("hello");
+//     resolve("success");    
+// })
 
-
+// x3();
